@@ -5,7 +5,7 @@ build a basic English sentence recognizer based on hidden Markov models ("HMMs")
 ## To do:
   To read the HMM from sentence.hmm and observations from example1.obs on commend line: <br />
     ```
-    python recognize.py sentence.hmm example1.obs 
+    python recognize.py sentence.hmm example1.obs <br />
     python statepath.py sentence.hmm example1.obs
     ```
 
@@ -16,20 +16,20 @@ build a basic English sentence recognizer based on hidden Markov models ("HMMs")
   
   Each line reports P(O | lambda) for that HMM, e.g,:<br />
     ```
-    python recognize.py sentence.hmm example1.obs 
-    0.027 
-    0.0288 
-    0.0
+    python recognize.py sentence.hmm example1.obs <br />
+    0.027 <br />
+    0.0288 <br />
+    0.0<br />
     ```
   
   
   
   Each line again corresponds to a data set:  In this case, the program outputs the "optimal" state path, i.e., the path with the highest probability P(O, I | lambda) and, if the probability is greater than zero, the state sequence.  For example: <br />
     ```
-    python statepath.py sentence.hmm example1.obs 
-    0.027 SUBJECT PREDICATE OBJECT
-    0.0288 SUBJECT PREDICATE OBJECT
-    0
+    python statepath.py sentence.hmm example1.obs <br />
+    0.027 SUBJECT PREDICATE OBJECT<br />
+    0.0288 SUBJECT PREDICATE OBJECT<br />
+    0<br />
     ```
   
   
@@ -37,8 +37,8 @@ build a basic English sentence recognizer based on hidden Markov models ("HMMs")
   This program optimizes the HMM using one iteration of the Baum-Welch algorithm.  After all data sets are processed, optimize saves the optimized HMMs in a new file as specified by the command-line argument.
   For each data set, optimize prints out P(O | lambda) for the old HMM before optimization, and P(O | lambda) for the new HMM after optimization: <br />
     ```
-    python optimize.py sentence.hmm example2.obs sentence-opti.hmm 
-    0.000588 0.037037
+    python optimize.py sentence.hmm example2.obs sentence-opti.hmm <br />
+    0.000588 0.037037<br />
     ```
     
   
