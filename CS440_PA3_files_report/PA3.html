@@ -1,0 +1,238 @@
+<html>
+<!-- This is a comment in HTML -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+p.ex1 {
+    padding: 0px 0px 0px 30px;
+}
+body{
+font-family: 'Trebuchet MS', Verdana;
+background-color: white;
+background-image: url("img/paper_background0.jpg");
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 10px;
+}
+h2{
+margin: 15px;
+}
+h1{
+margin: 15px 0px 0px 25px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+</style>
+
+<title>CS440 Programming Assignment 3</title>
+
+</head>
+
+<center>
+<a href="http://www.bu.edu/"><img border="0" src="./bu-logo.gif" width="119" height="120"></a>
+</center>
+
+<body bgcolor="#aaaaa">
+
+<h1><a href="http://www.cs.bu.edu/faculty/betke/cs440/">CS 440</a> Programming Assignment 3: 
+<p>Hidden Markov Models and Natural Language Processing</h1>
+<p class="ex1">
+<a href="http://www.bu.edu/">Boston University</a><br>
+Instructor: <a href="http://www.cs.bu.edu/faculty/betke">Prof. Margrit Betke</a><br>
+Departments of <a href="http://www.bu.edu/cs/">Computer Science</a> and
+<a href="http://www.bu.edu/math/">Mathematics</a><br>
+Name: Yehui Huang <a href="http://cs-people.bu.edu/huangyh/"> (site)<br></a>
+Teammates: Xiao Zhou, Wei Wei, Tianqi Xu<br>
+4/5/2016
+</p>
+<p class="ex1"></p>
+
+<div class="main-body">
+<hr>
+
+<ul>
+<h2>Problem Definition</h2>
+<p class="ex1">
+In this assignment, we build a basic English sentence recognizer based on hidden Markov models ("HMMs"), which
+is expected to recognize and parse sentences that use the certain vocabulary.
+
+<hr>
+<h2>Method and Implementation</h2>
+<ol>
+<li>
+	<p>Pattern Recognition: Report the observation probability of each input sequence
+	<ol>
+	<li><p>Retrieve information from the input files (sentence.hmm, example[x].obs) (note that [x] in example[x] is a number
+	<li><p>Computes the probabilities for each observations from 'example[x].obs' by forward algorithm and print these probabilities
+	</ol>
+</li>
+<li>
+	<p>State-Path Determination: Determine the optimal state path for each observation set and report its probability. Viterbi algorithm is used in this part.
+	<ol>
+	<li><p>Retrieve information from the input files (sentence.hmm, example[x].obs) (note that [x] in example[x] is a number
+	<li><p>function viterbi():
+	<p>This function uses Viterbi algorithm to find the optimal path and its probability.
+	</ol>
+</li>
+<li>
+	<p>Model Optimization: Optimize the HMM and report the probabilities before and after optimization with the help of Baum-Welch algorithm
+	<ol>
+	<li><p>function sentence_info():
+	<p>Read info from designated input file ('sentence.hmm')
+	<li><p>function example_info():
+	<p>Read info from designated input file ('example[x].obs')
+	<li><p>function forward():
+	<p>helper function that performs the specialized forward operations
+	<li><p>function backward():
+	<p>helper function that performs the backward operations
+	<li><p>function update_Pi():
+	<p>helper function that computes Pi (Initial State Distribution)
+	<li><p>function lamda():
+	<p>helper function that calculates lambda
+	<li><p>function gamma():
+	<p>helper function that calculates gamma
+	<li><p>function update_A():
+	<p>helper function that update A (Transition Matrix)
+	<li><p>function update_B():
+	<p>helper function that updates B (Emission Matrix)
+	<li><p>function re_estimation():
+	<p>Performs the re-estimation process
+	<li><p>function prob():
+	<p>helper function that calculates the probability for a specific observations
+	<li><p>function write_to():
+	<p>Write outputs to a designated file
+	</ol>
+</li>
+</ol>
+</p>
+
+<hr>
+<h2>Experiments</h2>
+<p>Experiment number: 6
+<p>Variables/inputs:
+<p><span style="padding-left:20px">#1: sentence.hmm (filename, used for HMM training)
+<p><span style="padding-left:20px">#2: example[x].obs (filename, used for computation of probability or updates)
+<p><span style="padding-left:20px">#3: [filename].hmm (filename, used for storing the updated variables of HMM)
+
+<p>The results of experiments match with the provided sample outputs given in the homework requirements
+
+<hr>
+<h2>Results</h2>
+<p>
+In all experiments, where the variables were correctly entered, this program runs without break
+</p>
+<center>
+<p>
+<table border='1'>
+<tbody><tr><td colspan="3"><center><h3>Results Table</h3></center></td></tr>
+<tr>
+<td> Test runs</td>
+<td> Inputs & Results/Outputs</td>
+<td> Written file</td>
+</tr>
+<tr>
+  <td> Test 1 for recognize.py</td> 
+  <td> <img src="img/T1_re.jpg"> </td> 
+  <td> N/A </td>
+</tr> 
+<tr>
+  <td>Test 2 for recognize.py</td> 
+  <td> <img src="img/T2_re.jpg"> </td> 
+  <td> N/A </td>
+</tr> 
+<tr>
+  <td>Test 1 for statepath.py</td> 
+  <td> <img src="img/T1_st.jpg"> </td> 
+  <td> N/A </td>
+</tr> 
+<tr>
+  <td>Test 2 for statepath.py</td> 
+  <td> <img src="img/T2_st.jpg"> </td> 
+  <td> N/A </td>
+</tr> 
+<tr>
+  <td>Test 1 for optimize.py</td> 
+  <td> <img src="img/T1_op.jpg"> </td> 
+  <td> <img src="img/T1_op_o.jpg" height="400" width="600"> </td>
+</tr> 
+<tr>
+  <td>Test 2 for optimize.py</td> 
+  <td> <img src="img/T2_op.jpg"> </td> 
+  <td> <img src="img/T3_op_o.jpg" height="400" width="600"> </td>
+</tr> 
+<tr>
+  <td>Test 3 for optimize.py</td> 
+  <td> <img src="img/T3_op.jpg"> </td> 
+  <td> <img src="img/T3_op_o.jpg" height="400" width="600"> </td>
+</tr> 
+</tbody></table>
+</p>
+</center>
+
+<hr>
+<h2>Discussion</h2>
+<p> 
+Discuss your method and results:
+</p><ul>
+<ol>
+<li><p>Question:  For the current application, why does this probability seem lower than we expect? What does this probability tell you? Does the current HMM always give a reasonable answer? For instance, what is the output probability for the below sentence?
+<p>&nbsp &nbsp "robots do kids play chess"
+<p>&nbsp &nbsp "chess eat play kids"
+<p>Answer: Because the transition and emission matrices are not accurate enough. This probability tells us although the HMM can recognize basic grammar patterns, it still can't distinguish between logic orders. The current model doesn't always give a reasonable answer. The outputs are 0.001512 and 0.0
+
+</li>
+<li><p>Question:  What can we tell from the reported optimal path for syntax analysis purpose? Can the HMM always correctly distinguish "statement" from "question" sentence? Why?
+<p>Answer: We can observe the arrangement of the syntax which allows us to analyize and distinguish different states( grammar checking) Since the HMM can correctly performing grammar checking, as long as it discovers that the first state of the observation is auxilliry, then it knows that it's a question sentence, otherwise it's a normal statement.
+</li>
+<li><p>Question:  Why should you not try to optimize an HMM with zero observation probability?
+<p>Answer: If we try to optimize an HMM with zero observation probability, since certains states are never reached during the training, then at some time t, forward_t(i) and backward_t(i) for i in range(N) will be equal to 0 at that point, and hence the P(O|lambda) will be 0. Apparently we can't apply a 0 as the denominator to the gamma and xi function, which leads to an output of 0 for that state in transition and emission matrix, that's why P(O|lambda) = 0 HMM can't be optimized.
+</li>
+<li><p>Question:  What kinds of changes will you need to make in the above HMM? Please describe your solution with an example of the modified matrices a, b and pi in the submitted web page.
+<p>Answer: we need to add states and observations. for each n states we want to add the the HMM, we need to expand a's rows and colomns both by n, length of pi by n, and b's rows by n. for o observations we add to the HMM, we need to expand b's colomns by o.
+<p>As an example , consider this new <a href="examples/sentence.hmm">sentence.hmm</a>, which is an example where we add "Adverb" to states and "good" and "hardly" to observations. Note that "good" can also be "Subject" or "object" (b[0][8] and b[3][8])
+</li>
+</ol>
+</ul>
+<p></p>
+
+<hr>
+<h2>Conclusions</h2>
+<p>
+<p>HMMs might be helpful when trying to diagonize the english or some other languages in some cases, on the other hand, trainning with multiple observation sequences is critical if we want to have satisfying results<p>
+<p>
+This assignment challenges our understanding of algorithms realted to HMM and python coding skills. After finished this assignment, we have learn a lot and will  try some more methods in the future. 
+</p>
+</p>
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<p>References:</p>
+<ul>
+<p>Notes from Professor Betke's class
+<p><a href="http://www.cs.bu.edu/fac/betke/cs440/restricted/papers/rabiner.pdf">A Tutorial on Hidden Markov Models and Selected Applications in Speech Recognition</a> by Rabiner [1989]
+</ul>
+<p>
+Discussed with teammates
+<p>Contributions:
+<ul>
+<p> Yehui Huang: State-Path determination (statepath.py) & Optimization (optimize.py)
+<p> Tianqi Xu  : Report & Optimization (optimize.py)
+<p> Wei wei    : Forward part (recognize.py) & Optimization (optimize.py)
+<p> Xiao Zhou  : Report & Optimization (optimize.py)
+</ul>
+<hr>
+</div>
+
+
+<button style="background-color:transparent" onclick="location.href='http://cs-people.bu.edu/zhouxiao/index'">Back</button>
+
+</body>
+</html>
