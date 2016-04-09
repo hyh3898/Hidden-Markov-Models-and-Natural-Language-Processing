@@ -4,8 +4,10 @@ build a basic English sentence recognizer based on hidden Markov models ("HMMs")
 
 To do:
   To read the HMM from sentence.hmm and observations from example1.obs on commend line:
+    '''
     python recognize.py sentence.hmm example1.obs 
     python statepath.py sentence.hmm example1.obs
+    '''
 
   To read the HMM from sentence.hmm and observations from example2.obs, and save the optimized version of the HMM in sentence-optimized.hmm:
     python optimize.py sentence.hmm example2.obs sentence-optimized.hmm
