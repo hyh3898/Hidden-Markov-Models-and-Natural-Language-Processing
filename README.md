@@ -3,7 +3,7 @@
 build a basic English sentence recognizer based on hidden Markov models ("HMMs"), which is expected to recognize and parse sentences that use the certain vocabulary.
 
 ## To do:
-  To read the HMM from sentence.hmm and observations from example1.obs on commend line:
+  To read the HMM from sentence.hmm and observations from example1.obs on commend line: <br />
     ```
     python recognize.py sentence.hmm example1.obs 
     python statepath.py sentence.hmm example1.obs
